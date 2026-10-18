@@ -1,0 +1,561 @@
+:root {
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font:
+    14px -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  background: #fff;
+  color: #000;
+}
+img {
+  max-width: 100%;
+}
+[hidden]:not([hidden="until-found" i]) {
+  display: none !important;
+}
+
+/* Palette from the physical board (laser-cut wood, soil squares, green tokens, gold coins) and the village scene (sunset cream, caption brown). */
+:root {
+  --bg: #fbf5ea;
+  --fg: #3b2a1a;
+  --muted: #7a644c;
+  --wood: #d9b98a;
+  --wood-edge: #b58d58;
+  --soil: #8a5a4c;
+  --soil-line: #6e4539;
+  --green-dark: #2e6b45;
+  --green: #5aa33a;
+  --lime: #b7d24a;
+  --gold: #e0b43a;
+  --terra: #d87a3a;
+  --blue: #7fb0d8;
+  --caption: #6b4226;
+  --cream: #fff4df;
+  --card: #fffdf7;
+  --display: "Arial Rounded MT Bold", "Trebuchet MS", Verdana, sans-serif;
+  --body: "Trebuchet MS", Verdana, Geneva, sans-serif;
+  color-scheme: light;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.65;
+  margin: 0;
+}
+body {
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+p {
+  max-width: 60ch;
+}
+a {
+  color: inherit;
+}
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.small {
+  display: block;
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  margin-bottom: 8px;
+}
+
+/* top menu */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  padding-block: 32px;
+}
+.top .name {
+  font-family: var(--display);
+  font-size: 26px;
+  color: var(--green-dark);
+  text-decoration: none;
+}
+.top nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.top nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  border-bottom: 3px solid transparent;
+}
+.top nav a:hover {
+  color: var(--green-dark);
+  border-bottom-color: var(--lime);
+}
+
+/* hero */
+.hero {
+  padding-block: clamp(72px, 11vw, 160px) clamp(80px, 10vw, 150px);
+}
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(84px, 14vw, 210px);
+  line-height: 0.95;
+  color: var(--green-dark);
+  letter-spacing: -0.01em;
+}
+.hero .lede {
+  font-family: var(--display);
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.25;
+  margin-top: 44px;
+  max-width: 24ch;
+  color: var(--caption);
+}
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: clamp(72px, 8vw, 120px);
+}
+.facts p {
+  background: var(--card);
+  border: 2px solid var(--wood);
+  border-radius: 14px;
+  padding: 20px;
+  font-size: 16px;
+  max-width: none;
+}
+
+/* image placeholders: wooden frame around a soil tile */
+.slot {
+  display: flex;
+  align-items: flex-end;
+  padding: 22px;
+  min-height: 280px;
+  background: var(--soil);
+  border: 10px solid var(--wood);
+  border-radius: 16px;
+  color: var(--cream);
+  font-family: var(--display);
+  font-size: 15px;
+}
+.slot.tall {
+  min-height: 560px;
+}
+.slot.wide {
+  min-height: clamp(320px, 36vw, 520px);
+}
+
+section {
+  padding-block: clamp(112px, 13vw, 200px);
+}
+.cols {
+  display: grid;
+  gap: 64px;
+}
+.cols > * {
+  min-width: 0;
+}
+@media (min-width: 900px) {
+  .cols.l {
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(64px, 7vw, 110px);
+    align-items: start;
+  }
+  .cols.r {
+    grid-template-columns: 7fr 5fr;
+    gap: clamp(64px, 7vw, 110px);
+    align-items: start;
+  }
+  .cols.half {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(48px, 5vw, 80px);
+  }
+}
+h2 {
+  font-family: var(--display);
+  font-size: clamp(42px, 4.8vw, 72px);
+  line-height: 1.08;
+  color: var(--green-dark);
+}
+h2 em {
+  font-style: normal;
+  color: var(--terra);
+}
+.text {
+  display: grid;
+  gap: 26px;
+  font-size: 18px;
+  align-content: start;
+}
+
+/* unit cards: like the label cards on the board */
+.units-viz {
+  display: grid;
+  gap: 44px;
+}
+.viz-lead {
+  font-family: var(--display);
+  font-size: clamp(24px, 2.2vw, 30px);
+  line-height: 1.25;
+  color: var(--caption);
+}
+.unit-group {
+  display: grid;
+  gap: 16px;
+}
+.region {
+  justify-self: start;
+  background: var(--green-dark);
+  color: var(--cream);
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.unit-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.unit {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 26px 24px 24px;
+  background: var(--card);
+  border: 2px solid var(--wood);
+  border-radius: 16px;
+}
+.unit::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--wood-edge);
+}
+.unit-name {
+  font-family: var(--display);
+  font-size: clamp(30px, 2.8vw, 40px);
+  line-height: 1;
+  color: var(--green-dark);
+}
+.unit-where {
+  font-size: 14px;
+  color: var(--muted);
+}
+.unit-note {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--terra);
+}
+
+/* acre as board squares */
+.acre {
+  display: grid;
+  gap: 14px;
+  margin-top: 40px;
+}
+.acre-title {
+  font-family: var(--display);
+  font-size: 24px;
+  color: var(--caption);
+}
+.acre-bar {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  height: clamp(90px, 9vw, 120px);
+  border: 8px solid var(--wood);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.acre-bar span {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 10px;
+  font-family: var(--display);
+  font-size: 15px;
+  color: var(--cream);
+  background: var(--soil);
+  border-left: 3px solid var(--wood);
+}
+.acre-bar span:nth-child(even) {
+  background: var(--green-dark);
+}
+.acre-bar span:first-child {
+  border-left: none;
+}
+.acre-note {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* compare */
+.compare {
+  display: grid;
+  gap: 20px;
+  margin-top: clamp(80px, 9vw, 130px);
+}
+.compare > div {
+  display: grid;
+  gap: 12px;
+  padding: 32px;
+  background: var(--card);
+  border: 2px solid var(--wood);
+  border-radius: 16px;
+}
+.compare > div:first-child .small {
+  color: var(--green-dark);
+}
+.compare > div:last-child .small {
+  color: var(--terra);
+}
+.compare h3 {
+  font-family: var(--display);
+  font-size: clamp(26px, 2.2vw, 32px);
+  line-height: 1.2;
+  color: var(--fg);
+}
+@media (min-width: 900px) {
+  .compare {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* caption bar, as in the village scene */
+.caption {
+  display: inline-block;
+  max-width: 100%;
+  padding: 22px 30px;
+  background: var(--caption);
+  color: var(--cream);
+  border-radius: 18px;
+  font-family: var(--display);
+  line-height: 1.3;
+}
+.closing {
+  margin-top: clamp(64px, 7vw, 96px);
+  font-size: clamp(22px, 2.4vw, 30px);
+  max-width: none;
+}
+
+/* concept */
+.stack {
+  display: grid;
+  gap: 26px;
+  font-size: 18px;
+}
+
+/* journey: gold coin steps */
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+.steps li {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--card);
+  border: 2px solid var(--wood);
+  border-radius: 16px;
+}
+.steps .n {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 4px solid var(--wood-edge);
+  color: var(--caption);
+  font-family: var(--display);
+  font-size: 28px;
+}
+.steps h3 {
+  font-family: var(--display);
+  font-size: clamp(24px, 2.2vw, 30px);
+  color: var(--green-dark);
+  margin-bottom: 6px;
+}
+.steps p {
+  color: var(--muted);
+}
+
+/* prototype */
+.methods {
+  display: grid;
+  gap: 16px;
+  margin-top: clamp(96px, 10vw, 150px);
+}
+.methods > div {
+  display: grid;
+  gap: 10px;
+  padding: 26px;
+  background: var(--card);
+  border: 2px solid var(--wood);
+  border-radius: 16px;
+  border-left: 12px solid var(--blue);
+}
+.methods > div:nth-child(2) {
+  border-left-color: var(--lime);
+}
+.methods > div:nth-child(3) {
+  border-left-color: var(--terra);
+}
+.methods h3 {
+  font-family: var(--display);
+  font-size: clamp(24px, 2.2vw, 30px);
+  color: var(--caption);
+}
+.methods p {
+  color: var(--muted);
+}
+@media (min-width: 900px) {
+  .methods > div {
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: baseline;
+  }
+}
+.gap-top {
+  margin-top: clamp(80px, 9vw, 130px);
+}
+
+/* video: a screen set into the wooden frame */
+.video {
+  margin-top: clamp(120px, 13vw, 190px);
+  display: grid;
+  gap: 32px;
+}
+.video-head {
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+}
+.video-head h3 {
+  font-family: var(--display);
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.15;
+  color: var(--green-dark);
+}
+.video-head p {
+  color: var(--muted);
+  font-size: 18px;
+}
+.frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 24px;
+  background: var(--green-dark);
+  border: 10px solid var(--wood);
+  border-radius: 16px;
+  color: var(--cream);
+  text-decoration: none;
+  font-family: var(--display);
+  font-size: clamp(24px, 2.6vw, 36px);
+}
+.frame:hover {
+  background: var(--green);
+}
+.video-note {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* outcome */
+.takeaway {
+  font-family: var(--display);
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.25;
+  margin-top: 40px;
+  max-width: 26ch;
+}
+
+footer {
+  padding-block: 56px 72px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--muted);
+  font-size: 15px;
+}
+footer a {
+  color: var(--green-dark);
+  font-family: var(--display);
+}
+
+/* scroll reveal: content is visible unless the script has marked the page as ready */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--d, 0ms);
+}
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
